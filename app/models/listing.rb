@@ -4,3 +4,5 @@ class Listing < ApplicationRecord
   has_many :reviews, through: :bookings
   has_many_attached :photos
 end
+
+=begin commentaire =end
