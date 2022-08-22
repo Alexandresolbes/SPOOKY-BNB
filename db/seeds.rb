@@ -8,7 +8,7 @@
 Listing.destroy_all
 User.destroy_all
 
-puts "user destroy"
+puts "User destroy"
 
 User.create!(
   first_name: "Lounes",
@@ -45,14 +45,13 @@ User.create!(
   password: "test1234"
 )
 
-
-puts "listing destroyvok"
 Listing.create(
   title: "Dracula's Mansion",
   description: "Discover Dracula's Home",
   address: "1 Vampire's Street, Transylvania",
   max_guests: rand(1..10),
-  price_per_night: rand(20...500)
+  price_per_night: rand(20...500),
+  user_id: User.all.sample.id
 )
 
 Listing.create(
@@ -60,15 +59,18 @@ Listing.create(
   description: "Set up your tent and meet yûreis in the most famous forest in Japan",
   address: "At the feet of mount Fuji, Japan",
   max_guests: rand(1..10),
-  price_per_night: rand(20...500)
+  price_per_night: rand(20...500),
+  user_id: User.all.sample.id
 )
+
 
 Listing.create(
   title: "Sanatorium Simone Weber",
   description: "Visit the oldest haunted hospital in France",
   address: "Lay-St-Christophe, France",
   max_guests: rand(1..10),
-  price_per_night: rand(20...500)
+  price_per_night: rand(20...500),
+  user_id: User.all.sample.id
 )
 
 Listing.create(
@@ -76,7 +78,8 @@ Listing.create(
   description: "An old bunker which is now haunted by Nazis",
   address: "3 Schönberger Straße, Germany",
   max_guests: rand(1..10),
-  price_per_night: rand(20...500)
+  price_per_night: rand(20...500),
+  user_id: User.all.sample.id
 )
 
 Listing.create(
@@ -84,7 +87,8 @@ Listing.create(
   description: "Come and visit the former women who used to work there",
   address: "Klondike Alaska, USA",
   max_guests: rand(1..10),
-  price_per_night: rand(20...500)
+  price_per_night: rand(20...500),
+  user_id: User.all.sample.id
 )
 
 Listing.create(
@@ -92,7 +96,8 @@ Listing.create(
   description: "Sleep and meet a Tantrik Black Mage",
   address: "Rajasthan, India",
   max_guests: rand(1..10),
-  price_per_night: rand(20...500)
+  price_per_night: rand(20...500),
+  user_id: User.all.sample.id
 )
 
 Listing.create(
@@ -100,7 +105,8 @@ Listing.create(
   description: "It was the home of most mystical person of Russian history",
   address: "64 Gorokhovaïa street Saint Petersburg, Russia",
   max_guests: rand(1..10),
-  price_per_night: rand(20...500)
+  price_per_night: rand(20...500),
+  user_id: User.all.sample.id
 )
 
 Listing.create(
@@ -108,6 +114,6 @@ Listing.create(
   description: "Enjoy your stay at one of the most haunted church of the world, beware of the pastor....",
   address: "Spring Hills Pennsylvania, USA",
   max_guests: rand(1..10),
-  price_per_night: rand(20...500)
+  price_per_night: rand(20...500),
+  user_id: User.all.sample.id
 )
-puts "listing creation"
