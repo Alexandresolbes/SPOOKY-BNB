@@ -8,7 +8,7 @@
 Listing.destroy_all
 User.destroy_all
 
-puts "user destroy"
+puts "User destroy"
 
 User.create!(
   first_name: "Lounes",
@@ -45,8 +45,6 @@ User.create!(
   password: "test1234"
 )
 
-
-puts "listing destroyvok"
 Listing.create(
   title: "Dracula's Mansion",
   description: "Discover Dracula's Home",
@@ -62,6 +60,7 @@ Listing.create(
   max_guests: rand(1..10),
   price_per_night: rand(20...500)
 )
+
 
 Listing.create(
   title: "Sanatorium Simone Weber",
@@ -110,4 +109,3 @@ Listing.create(
   max_guests: rand(1..10),
   price_per_night: rand(20...500)
 )
-puts "listing creation"
