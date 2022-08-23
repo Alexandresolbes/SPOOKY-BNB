@@ -1,11 +1,19 @@
-<h1>Listings</h1>
+<h1 class="text-center">All the Listings</h1>
 
-<ul>
+<div class="container">
+  <div class="row">
   <% @listings.each do |listing| %>
-    <li><%=link_to listing.title, listing_path(listing) %>
-    <%= listing.user.first_name %>
-    </li>
+    <div class="col-sm-4">
+    <% if listing.photos.count.positive? %>
+      <%= cl_image_tag listing.photos.first.key, width: 300, height: 200, crop: :fill %>
+    <% end %>
+      <p>
+      <%=link_to listing.title, listing_path(listing) %>
+      <%= listing.user.first_name %>
+    </p>
+    </div>
   <% end %>
-</ul>
+  </div>
+  <%= link_to 'Create a listing', new_listing_path, class: "btn btn-primary" %>
+</div>
 
-<%= link_to 'Create a listing', new_listing_path %>

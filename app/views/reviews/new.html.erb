@@ -1,0 +1,18 @@
+<h1><%= @review.title %></h1>
+
+<p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Create a Review 📍
+  </a>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+<%= simple_form_for [@listing, @booking, @review] do |f| %>
+                <%= f.input :title %>
+                <%= f.input :content %>
+                <%= f.input :rating, collection: 1..5 %>
+                <%= f.submit "Post your review", class: "btn btn-pin border mt-3" %>
+              <% end %>  </div>
+</div>
+
+<%= link_to "Back", bookings_path %>

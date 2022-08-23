@@ -4,6 +4,7 @@
   <%= f.input :address %>
   <%= f.input :max_guests %>
   <%= f.input :price_per_night %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit "Create a listing" %>
 <% end %>
 
