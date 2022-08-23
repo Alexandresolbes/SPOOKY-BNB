@@ -10,7 +10,9 @@
 </ul>
 
 <%= link_to 'Back', listings_path %>
+
 <% if current_user == @listing.user %>
 <%= link_to 'Delete', listing_path(@listing), data: { turbo_method: :delete, turbo_confirm: 'Sure ?' } %>
+
 <% end %>
-<%= link_to 'Update this restaurant', edit_listing_path(@listing) %>
+<%= link_to 'Update this listing', edit_listing_path(@listing) %>

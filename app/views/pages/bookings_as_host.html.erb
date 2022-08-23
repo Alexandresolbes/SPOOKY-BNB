@@ -1,0 +1,12 @@
+<h1>Bookings on my listings (HOST)</h1>
+<div>
+  <% @listings.each do |listing| %>
+  <%= listing.title %>
+  <%= listing.description %>
+    <% listing.bookings.each do |booking| %>
+    <p>Reserved by : <%= booking.user.first_name %></p>
+      <%= booking.start_date %>
+      <%= booking.end_date %>
+    <% end %>
+  <% end %>
+</div>
