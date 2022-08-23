@@ -1,10 +1,11 @@
-<h1>Update this restaurant</h1>
+<h1>Update this listing</h1>
 <%= simple_form_for @listing do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :address %>
   <%= f.input :max_guests %>
   <%= f.input :price_per_night %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit "Update your listing" %>
 <% end %>
 
