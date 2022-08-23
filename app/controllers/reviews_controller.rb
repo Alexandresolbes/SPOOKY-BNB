@@ -2,8 +2,12 @@ class ReviewsController < ApplicationController
   before_action :set_booking, only: %i[new create]
 
   def new
-    @listing = @booking.listing
-    @review = Review.new
+    if @booking.status == 'past'
+      @listing = @booking.listing
+      @review = Review.new
+    else
+      redirect_to bookings_path, notice: "Can't create a review"
+    end
   end
 
   def create
