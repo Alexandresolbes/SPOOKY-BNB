@@ -5,6 +5,7 @@
 <li><%= booking.start_date %></li>
 <li><%= booking.end_date %></li>
 <li><%= booking.status %></li>
-
+<li><%= booking.reviews.count %></li>
+<%= link_to "Post a review", new_listing_booking_review_path(booking, booking.listing_id) %>
 <% end %>
 </ul>
