@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:edit, :update]
-  before_action :set_listing, only: [:edit, :update, :create, :new]
+  before_action :set_listing, only: [:create, :new]
 
   def new
     @user = current_user
@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to @booking, notice: "Updated successfully"
+      redirect_to bookings_host_path, notice: "Status updated successfully"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :user_id, :listing_id)
+    params.require(:booking).permit(:status)
   end
 
   def set_listing

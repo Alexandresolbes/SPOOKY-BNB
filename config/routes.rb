@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :listings do
-    resources :bookings, only: [:new, :create, :edit, :update] do
+    resources :bookings, only: [:new, :create,] do
       resources :reviews, only: [:new, :create]
     end
   end
-  resources :bookings, only: [:destroy]
+  resources :bookings, only: [:destroy, :edit, :update]
 
   get "/bookings", to: "pages#bookings_as_guest"
   get "/bookings_host", to: "pages#bookings_as_host"
