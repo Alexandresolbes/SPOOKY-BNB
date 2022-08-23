@@ -1,13 +1,24 @@
 class ListingsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_listing, only: [:show, :edit, :destroy]
+  before_action :set_listing, only: [:show, :edit, :destroy, :update, :edit]
 
   def index
     @listings = Listing.all
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @listing.update(listing_params)
+      redirect_to @listing, notice: "Updated successfully"
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def new
@@ -39,7 +50,5 @@ class ListingsController < ApplicationController
   def set_listing
     @listing = Listing.find(params[:id])
   end
-
-
 
 end
