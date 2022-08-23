@@ -4,9 +4,21 @@
   <%= listing.title %>
   <%= listing.description %>
     <% listing.bookings.each do |booking| %>
-    <p>Reserved by : <%= booking.user.first_name %></p>
+      <p>Reserved by : <%= booking.user.first_name %></p>
       <%= booking.start_date %>
       <%= booking.end_date %>
+      status: <%= booking.status %>
+      <% if booking.status == 'pending' %>
+        <%= form_for booking, method: :patch do |f| %>
+          <%= f.hidden_field :status, value: 'active' %>
+          <%= f.submit 'Accept reservation' %>
+        <% end %>
+      <% elsif booking.status == 'active' %>
+          <%= form_for booking, method: :patch do |f| %>
+          <%= f.hidden_field :status, value: 'cancelled' %>
+          <%= f.submit 'Cancel reservation' %>
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
