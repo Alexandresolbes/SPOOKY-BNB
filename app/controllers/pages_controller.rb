@@ -3,4 +3,14 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def bookings_as_guest
+    @bookings = Booking.where(user: current_user)
+  end
+
+  def bookings_as_host
+    @listings = current_user.listings
+    #@bookings = Booking.where(listing.user_id == current_user)
+  end
+
 end
