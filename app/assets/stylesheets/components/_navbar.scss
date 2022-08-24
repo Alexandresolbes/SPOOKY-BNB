@@ -1,6 +1,9 @@
+$black: #272626;
+$text: #F8F8FF;
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $black;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +12,8 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+a {
+  color: $text;
 }
