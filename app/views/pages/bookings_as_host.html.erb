@@ -26,8 +26,10 @@
 <h2 id ="listings">My listings</h2>
 <ul>
   <% @listings.each do |listing| %>
-    <li><%= listing.title %></li>
+    <li><%=link_to listing.title, listing_path(listing) %></li>
     <li><%= listing.description %></li>
+    <%= link_to 'Delete this listing', listing_path(listing), data: { turbo_method: :delete, turbo_confirm: 'Sure ?' } %>
+    <%= link_to 'Update listing', edit_listing_path(listing) %>
   <% end %>
 </ul>
 <h2 id ="bookings">My Bookings</h2>

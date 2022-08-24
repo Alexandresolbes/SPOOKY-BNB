@@ -15,7 +15,7 @@ puts "Users destroy"
 
 # ALL USERS
 
-file_lounes = URI.open("https://res.cloudinary.com/laura-latuillerie/image/upload/v1661266103/development/0owhjbn7tzxgtgd9cqse9zi5nxs7.jpg")
+file_lounes = URI.open("https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1494&q=80")
 lounes = User.new(
   first_name: "Lounes",
   last_name: "Ait",
@@ -26,7 +26,7 @@ lounes.photo.attach(io: file_lounes, filename: "lounes.jpg", content_type: "imag
 lounes.save!
 p "Lounes created"
 
-file_alex = URI.open("https://res.cloudinary.com/laura-latuillerie/image/upload/w_500,c_fill,ar_1:1,g_auto,r_max/v1661251358/development/1n8j4aa82upnboicagv3zx66t180.jpg")
+file_alex = URI.open("https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1494&q=80")
 alex = User.new(
   first_name: "Alex",
   last_name: "Solbes",
@@ -37,7 +37,7 @@ alex.photo.attach(io: file_alex, filename: "alex.jpg", content_type: "image/jpg"
 alex.save!
 p "Alex created"
 
-file_laura = URI.open("https://res.cloudinary.com/laura-latuillerie/image/upload/v1661243151/development/c8awc3bcel1p9fdbzltustg9cmx7.jpg")
+file_laura = URI.open("https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1494&q=80")
 laura = User.new(
   first_name: "Laura",
   last_name: "Latuillerie",
@@ -48,7 +48,7 @@ laura.photo.attach(io: file_laura, filename: "laura.jpg", content_type: "image/j
 laura.save!
 p "Laura created"
 
-file_isabel = URI.open("https://res.cloudinary.com/laura-latuillerie/image/upload/v1661246044/development/skhk0stcabssqyl0x7si32qghbm5.png")
+file_isabel = URI.open("https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1494&q=80")
 isabel = User.new(
   first_name: "Isabel",
   last_name: "Lamim",
