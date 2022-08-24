@@ -5,3 +5,11 @@
 @import "navbar";
 @import "banner";
 @import "map";
+
+$black: #272626;
+$text: #F8F8FF;
+
+body {
+  background: $black;
+  color: $text;
+}

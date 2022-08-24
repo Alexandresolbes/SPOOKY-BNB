@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path do %>
-      <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1661242153/development/SPOOKY_oaox19.png", height= 60>
+      <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1661335916/spooky-logo_p0cl45.png", height= 60>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,14 +14,15 @@
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
+          <li class="nav-item  dropdown">
             <%= link_to "Bookings", bookings_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Bookings as a host", bookings_host_path, class: "nav-link" %>
+            <% if current_user.listings.empty? %>
+              <%= link_to "Become a host", bookings_host_path, class: "nav-link" %>
+            <% else %>
+              <%= link_to "My hosting dashboard", bookings_host_path, class: "nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item dropdown">
           <% if current_user.photo.key %>
