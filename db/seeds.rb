@@ -15,7 +15,7 @@ puts "Users destroy"
 
 # ALL USERS
 
-file_lounes = URI.open("https://res.cloudinary.com/laura-latuillerie/image/upload/v1661266103/development/0owhjbn7tzxgtgd9cqse9zi5nxs7.jpg")
+file_lounes = URI.open("https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1494&q=80")
 lounes = User.new(
   first_name: "Lounes",
   last_name: "Ait",
