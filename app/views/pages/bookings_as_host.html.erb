@@ -43,6 +43,10 @@
         <%= f.hidden_field :status, value: 'active' %>
         <%= f.submit 'Accept reservation' %>
       <% end %>
+      <%= form_for booking, method: :patch do |f| %>
+        <%= f.hidden_field :status, value: 'cancelled' %>
+        <%= f.submit 'Refuse reservation' %>
+      <% end %>
     <% elsif booking.status == 'active' %>
       <%= form_for booking, method: :patch do |f| %>
         <%= f.hidden_field :status, value: 'cancelled' %>
