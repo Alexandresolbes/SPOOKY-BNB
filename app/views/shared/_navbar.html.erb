@@ -23,7 +23,7 @@
             </li>
           <% else %>
             <li class="nav-item dropdown">
-              <%= link_to "Host Dashboard", bookings_host_path, class: "dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= link_to "Host Dashboard", bookings_host_path, class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to 'Create a listing', new_listing_path, class: "dropdown-item" %>
                 <%= link_to "My Listings", "/bookings_host#listings", class: "dropdown-item" %>
