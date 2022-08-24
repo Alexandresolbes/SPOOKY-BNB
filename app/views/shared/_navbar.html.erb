@@ -21,7 +21,11 @@
             <%= link_to "Bookings", bookings_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Bookings as a host", bookings_host_path, class: "nav-link" %>
+            <% if current_user.listings.empty? %>
+              <%= link_to "Become a host", bookings_host_path, class: "nav-link" %>
+            <% else %>
+              <%= link_to "My hosting dashboard", bookings_host_path, class: "nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item dropdown">
           <% if current_user.photo.key %>
