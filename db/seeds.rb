@@ -15,7 +15,7 @@ puts "Users destroy"
 
 # ALL USERS
 
-file_lounes = URI.open("https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1494&q=80")
+file_lounes = URI.open("https://resize.programme-television.ladmedia.fr/r/650,406/img/var/premiere/storage/images/tele-7-jours/diapos-tv/que-sont-devenus-les-acteurs-de-malcolm-4629756/hal/94988895-1-fre-FR/Hal.jpg")
 lounes = User.new(
   first_name: "Lounes",
   last_name: "Ait",
@@ -26,7 +26,7 @@ lounes.photo.attach(io: file_lounes, filename: "lounes.jpg", content_type: "imag
 lounes.save!
 p "Lounes created"
 
-file_alex = URI.open("https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1494&q=80")
+file_alex = URI.open("https://www.looper.com/img/gallery/the-untold-truth-of-magnum-p-i/l-intro-1643625830.jpg")
 alex = User.new(
   first_name: "Alex",
   last_name: "Solbes",
@@ -37,7 +37,7 @@ alex.photo.attach(io: file_alex, filename: "alex.jpg", content_type: "image/jpg"
 alex.save!
 p "Alex created"
 
-file_laura = URI.open("https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1494&q=80")
+file_laura = URI.open("https://www.programme-tv.net/imgre/fit/~2~providerPerson~f2380573cb44b255b.jpg/300x300/quality/80/lucy-liu.jpg")
 laura = User.new(
   first_name: "Laura",
   last_name: "Latuillerie",
@@ -48,7 +48,7 @@ laura.photo.attach(io: file_laura, filename: "laura.jpg", content_type: "image/j
 laura.save!
 p "Laura created"
 
-file_isabel = URI.open("https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1494&q=80")
+file_isabel = URI.open("https://imagens.brasil.elpais.com/resizer/Au1VcyxWxn1tw2GC_c90jrMWs-U=/1960x1470/cloudfront-eu-central-1.images.arcpublishing.com/prisa/676VZ3WHQY6LHM56STEZF27PIA.jpg")
 isabel = User.new(
   first_name: "Isabel",
   last_name: "Lamim",
