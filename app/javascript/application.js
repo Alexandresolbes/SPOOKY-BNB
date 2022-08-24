@@ -5,6 +5,6 @@ import "bootstrap"
 
 
 var typed = new Typed('.element', {
-  strings: ["Find the Scariest Places to stay", "Live the spookiest night of your life", "SPOOKY BNB"],
-  typeSpeed: 75
+  strings: ["Find the scariest places to stay", "Live the spookiest experience with", "SPOOKY BNB"],
+  typeSpeed:  70
 });
