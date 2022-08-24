@@ -10,8 +10,13 @@
 
 $black: #272626;
 $text: #F8F8FF;
+$grey: #2b2b2b;
 
 body {
   background: $black;
   color: $text;
+}
+
+.grey-bg{
+  background-color: $grey;
 }
