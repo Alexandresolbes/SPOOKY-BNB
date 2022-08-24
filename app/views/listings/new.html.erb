@@ -1,14 +1,4 @@
 <h1>Create a listing</h1>
 <h4>Become a host and start earning money</h4>
-
-<%= simple_form_for @listing do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :address %>
-  <%= f.input :max_guests %>
-  <%= f.input :price_per_night %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit "Create a listing" %>
-<% end %>
-
+<%= render "form", listing: @listing %>
 <%= link_to 'Back', listings_path %>
