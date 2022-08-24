@@ -20,6 +20,7 @@
 <% elsif current_user != @listing.user %>
   <%= link_to 'Book Listing', new_listing_booking_path(@listing), class: "btn btn-primary" %>
 <% end %>
+
 <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"

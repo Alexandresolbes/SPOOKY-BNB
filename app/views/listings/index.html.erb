@@ -1,17 +1,37 @@
 <%= render 'shared/banner' %>
-<h1 class="text-center">All the Listings</h1>
 
 <div class="container">
+  <h1 class="text-center my-4">All the Listings</h1>
   <div class="row">
   <% @listings.each do |listing| %>
-    <div class="col-sm-4">
-    <% if listing.photos.count.positive? %>
-      <%= cl_image_tag listing.photos.first.key, width: 300, height: 200, crop: :fill %>
-    <% end %>
-      <p>
-      <%=link_to listing.title, listing_path(listing) %>
-      <%= listing.user.first_name %>
-    </p>
+    <div class="col-sm-4 my-4">
+     
+      <div class="card p-4 rounded-4">
+      <%= link_to listing_path(listing) do %>
+        <% if listing.photos.count.positive? %>
+          <%= cl_image_tag listing.photos.first.key, height: 250, class: "card-img-top rounded-4" %>
+        <% end %>
+      <% end %>
+        <p>
+        <div class="card-body px-0 py-1">
+          <h5 class="text-end text-white text-decoration-none"><strong><%= rand(0..5) %> ⭐</strong></h5>
+          <p><%= link_to listing.title, listing_path(listing), class: "card-title text-decoration-none text-white fw-bolder" %></p>
+          <p>
+          <p class="p-0">👻<%= listing.description[0, 40] %></p>
+          <p class="p-0">💲<%= listing.price_per_night %>/ night</p>
+          <p class="p-0">🧑🏻‍🤝‍🧑🏻<%= listing.max_guests %></p>
+          <hr>
+          <div class="d-flex justify-content-between">
+          <div>
+             <%= link_to "See more", listing_path(listing), class: "btn btn-orange" %>
+          </div>
+            <div>
+              <span><strong>Host : </span></strong><%= listing.user.first_name %>
+            <%= cl_image_tag listing.user.photo.key, class:"sm-avatar ms-2" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
   </div>
