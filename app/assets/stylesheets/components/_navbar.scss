@@ -1,5 +1,7 @@
 $black: #272626;
 $text: #F8F8FF;
+$green:#7FFF00;
+$orange:#D35400;
 
 .navbar-lewagon {
   justify-content: space-between;
@@ -12,4 +14,16 @@ $text: #F8F8FF;
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.nav-link{
+  color: $text;
+}
+
+.nav-link:hover{
+  color: $green;
+}
+
+.avatar{
+  border: 2px solid $white;
 }
