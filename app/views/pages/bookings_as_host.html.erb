@@ -1,57 +1,56 @@
-<h1>Bookings on my listings (HOST)</h1>
 <div>
-<!--   <% @listings.each do |listing| %>
-  <%= listing.title %>
-  <%= listing.description %>
-    <% listing.bookings.each do |booking| %>
-      <p>Reserved by : <%= booking.user.first_name %></p>
-      <%= booking.start_date %>
-      <%= booking.end_date %>
-      status: <%= booking.status %>
-      <% if booking.status == 'pending' %>
-        <%= form_for booking, method: :patch do |f| %>
-          <%= f.hidden_field :status, value: 'active' %>
-          <%= f.submit 'Accept reservation' %>
-        <% end %>
-      <% elsif booking.status == 'active' %>
-          <%= form_for booking, method: :patch do |f| %>
-          <%= f.hidden_field :status, value: 'cancelled' %>
-          <%= f.submit 'Cancel reservation' %>
-        <% end %>
-      <% end %>
-    <% end %>
+<div class="container">
+  <h1 class="text-center my-4">My Listings</h1>
+  <div class="row">
+     <% @listings.each do |listing| %>
+      <div class="col-sm-4 my-4">
+
+        <div class="card p-4 rounded-4">
+          <%= link_to listing_path(listing) do %>
+            <% if listing.photos.count.positive? %>
+             <%= cl_image_tag listing.photos.first.key, height: 250, class: "card-img-top rounded-4" %>
+            <% end %>
+          <% end %>
+        <p>
+          <div class="card-body px-0 py-1">
+            <p><%= link_to listing.title, listing_path(listing), class: "card-title text-decoration-none text-white fw-bolder" %></p>
+            <p>
+            <p class="p-0">👻<%= listing.description[0, 40] %></p>
+            <p class="p-0">💲<%= listing.price_per_night %>/ night</p>
+            <p class="p-0">🧑🏻‍🤝‍🧑🏻<%= listing.max_guests %></p>
+              <%= link_to 'Delete this listing', listing_path(listing), data: { turbo_method: :delete, turbo_confirm: 'Sure ?' }, class: "btn btn-orange" %>
+              <%= link_to 'Update listing', edit_listing_path(listing), class: "btn btn-orange" %>
+          </div>
+      </div>
+    </div>
   <% end %>
 </div>
--->
-<h2 id ="listings">My listings</h2>
-<ul>
-  <% @listings.each do |listing| %>
-    <li><%=link_to listing.title, listing_path(listing) %></li>
-    <li><%= listing.description %></li>
-    <%= link_to 'Delete this listing', listing_path(listing), data: { turbo_method: :delete, turbo_confirm: 'Sure ?' } %>
-    <%= link_to 'Update listing', edit_listing_path(listing) %>
-  <% end %>
-</ul>
-<h2 id ="bookings">My Bookings</h2>
-  <% @bookings.each do |booking| %>
-    <p>Reserved by : <%= booking.user.first_name %></p>
-    <%= booking.start_date %>
-    <%= booking.end_date %>
-    status: <%= booking.status %>
-    <% if booking.status == 'pending' %>
-      <%= form_for booking, method: :patch do |f| %>
-        <%= f.hidden_field :status, value: 'active' %>
-        <%= f.submit 'Accept reservation' %>
-      <% end %>
-      <%= form_for booking, method: :patch do |f| %>
-        <%= f.hidden_field :status, value: 'cancelled' %>
-        <%= f.submit 'Refuse reservation' %>
-      <% end %>
-    <% elsif booking.status == 'active' %>
-      <%= form_for booking, method: :patch do |f| %>
-        <%= f.hidden_field :status, value: 'cancelled' %>
-        <%= f.submit 'Cancel reservation' %>
-      <% end %>
+
+<div>
+<div class="container">
+  <h1 class="text-center my-4">Manage my Listings' bookings</h1>
+  <div class="row">
+    <% @bookings.each do |booking| %>
+      <div class="col-sm-4 my-4">
+        <p>Reserved by : <%= booking.user.first_name %></p>
+        From <%= booking.start_date %> to <%= booking.end_date %>
+        status: <%= booking.status %>
+        <% if booking.status == 'pending' %>
+          <%= form_for booking, method: :patch do |f| %>
+            <%= f.hidden_field :status, value: 'active' %>
+            <%= f.submit 'Accept reservation', class: "btn btn-orange" %>
+          <% end %>
+          <%= form_for booking, method: :patch do |f| %>
+            <%= f.hidden_field :status, value: 'cancelled' %>
+            <%= f.submit 'Refuse reservation', class: "btn btn-orange" %>
+          <% end %>
+        <% elsif booking.status == 'active' %>
+          <%= form_for booking, method: :patch do |f| %>
+            <%= f.hidden_field :status, value: 'cancelled' %>
+            <%= f.submit 'Cancel reservation', class: "btn btn-orange" %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
+  </div>
 <%= link_to "Back", listings_path %>
