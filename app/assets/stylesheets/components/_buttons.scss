@@ -1,3 +1,4 @@
+/*
 body {
   margin:0;
   padding:0;
@@ -57,4 +58,11 @@ ul li a:hover {
   color: #ffa502;
   box-shadow: 0 0 15px #d35400;
   text-shadow: 0 0 15px #d35400;
+}
+*/
+$orange:#D35400;
+
+.btn-orange{
+  color: $orange;
+  border: 1px solid $orange;
 }
