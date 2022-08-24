@@ -23,14 +23,14 @@
   <% end %>
 </div>
 -->
-<h2>My listings</h2>
+<h2 id ="listings">My listings</h2>
 <ul>
   <% @listings.each do |listing| %>
     <li><%= listing.title %></li>
     <li><%= listing.description %></li>
   <% end %>
 </ul>
-<h2>My Bookings</h2>
+<h2 id ="bookings">My Bookings</h2>
   <% @bookings.each do |booking| %>
     <p>Reserved by : <%= booking.user.first_name %></p>
     <%= booking.start_date %>
