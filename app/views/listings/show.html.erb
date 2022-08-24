@@ -15,11 +15,11 @@
 <%= link_to 'Back', listings_path %>
 
 <% if current_user == @listing.user %>
-<%= link_to 'Delete', listing_path(@listing), data: { turbo_method: :delete, turbo_confirm: 'Sure ?' } %>
+  <%= link_to 'Delete', listing_path(@listing), data: { turbo_method: :delete, turbo_confirm: 'Sure ?' } %>
+  <%= link_to 'Update Listing', edit_listing_path(@listing) %>
+<% elsif current_user != @listing.user %>
+  <%= link_to 'Book Listing', new_listing_booking_path(@listing), class: "btn btn-primary" %>
 <% end %>
-<%= link_to 'Update Listing', edit_listing_path(@listing) %>
-<%= link_to 'Book Listing', new_listing_booking_path(@listing), class: "btn btn-primary" %>
-
 <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
