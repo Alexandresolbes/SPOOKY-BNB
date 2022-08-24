@@ -1,4 +1,12 @@
-<h1>Create a listing</h1>
-<h4>Become a host and start earning money</h4>
-<%= render "form", listing: @listing %>
-<%= link_to 'Back', listings_path %>
+<div class="container grey-bg w-50 p-5" >
+  <div class="text-center">
+    <h1>Create a listing</h1>
+    <h4>Become a host and start earning money</h4>
+  </div>
+
+  <div>
+    <%= render "form", listing: @listing %>
+    <%= link_to 'Back', listings_path, class: "btn btn-outline-light" %>
+  </div>
+
+</div>
