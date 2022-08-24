@@ -1,6 +1,6 @@
 <h1>Bookings on my listings (HOST)</h1>
 <div>
-  <% @listings.each do |listing| %>
+<!--   <% @listings.each do |listing| %>
   <%= listing.title %>
   <%= listing.description %>
     <% listing.bookings.each do |booking| %>
@@ -22,5 +22,30 @@
     <% end %>
   <% end %>
 </div>
-
+-->
+<h2>My listings</h2>
+<ul>
+  <% @listings.each do |listing| %>
+    <li><%= listing.title %></li>
+    <li><%= listing.description %></li>
+  <% end %>
+</ul>
+<h2>My Bookings</h2>
+  <% @bookings.each do |booking| %>
+    <p>Reserved by : <%= booking.user.first_name %></p>
+    <%= booking.start_date %>
+    <%= booking.end_date %>
+    status: <%= booking.status %>
+    <% if booking.status == 'pending' %>
+      <%= form_for booking, method: :patch do |f| %>
+        <%= f.hidden_field :status, value: 'active' %>
+        <%= f.submit 'Accept reservation' %>
+      <% end %>
+    <% elsif booking.status == 'active' %>
+      <%= form_for booking, method: :patch do |f| %>
+        <%= f.hidden_field :status, value: 'cancelled' %>
+        <%= f.submit 'Cancel reservation' %>
+      <% end %>
+    <% end %>
+  <% end %>
 <%= link_to "Back", listings_path %>

@@ -11,7 +11,13 @@ class PagesController < ApplicationController
 
   def bookings_as_host
     @listings = current_user.listings
-    #@bookings = Booking.where(listing.user_id == current_user)
+    @bookings = []
+    @listings.each do |listing|
+      listing.bookings.each do |booking|
+        @bookings << booking
+      end
+    end
+    define_active
   end
 
   private
