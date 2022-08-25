@@ -2,38 +2,35 @@
 
 <div class="container" id="cards-index">
   <div class="row">
-  <div class="card-group">
-  <% @listings.each do |listing| %>
-    <div class="col-sm-4 my-4">
-      <div class="card p-4 rounded-4">
-      <%= link_to listing_path(listing) do %>
-        <% if listing.photos.count.positive? %>
-          <%= cl_image_tag listing.photos.first.key, height: 250, class: "card-img-top rounded-4" %>
-        <% end %>
-      <% end %>
-        <p>
-        <div class="card-body px-0 py-1">
-          <h5 class="text-end text-white text-decoration-none"><strong><%= rand(0..5) %> ⭐</strong></h5>
-          <p><%= link_to listing.title, listing_path(listing), class: "card-title text-decoration-none text-white fw-bolder" %></p>
-
-          <p class="p-0 description">👻<%= listing.description %></p>
-          <p class="p-0">💲<%= listing.price_per_night %>/ night</p>
-          <p class="p-0">🧑🏻‍🤝‍🧑🏻<%= listing.max_guests %></p>
-          <hr>
-          <div class="d-flex justify-content-between card-footer">
-          <div>
-             <%= link_to "See more", listing_path(listing), class: "btn btn-green" %>
-          </div>
-            <div>
-              <span><strong>Host : </span></strong><%= listing.user.first_name %>
-            <%= cl_image_tag listing.user.photo.key, class:"sm-avatar ms-2" %>
+    <div class="card-group">
+      <% @listings.each do |listing| %>
+        <div class="col-sm-4 my-4">
+          <div class="card p-4 rounded-4">
+            <%= link_to listing_path(listing) do %>
+              <% if listing.photos.count.positive? %>
+                <%= cl_image_tag listing.photos.first.key, height: 250, class: "card-img-top rounded-4" %>
+              <% end %>
+            <% end %>
+            <div class="card-body px-0 py-1">
+              <h5 class="text-end text-white text-decoration-none"><strong><%= rand(0..5) %> ⭐</strong></h5>
+              <p><%= link_to listing.title, listing_path(listing), class: "card-title text-decoration-none text-white fw-bolder" %></p>
+              <p class="p-0 description">👻<%= listing.description %></p>
+              <p class="p-0">💲<%= listing.price_per_night %>/ night</p>
+              <p class="p-0">🧑🏻‍🤝‍🧑🏻<%= listing.max_guests %></p>
+              <hr>
+              <div class="d-flex justify-content-between card-footer">
+                <div>
+                  <%= link_to "See more", listing_path(listing), class: "btn btn-green" %>
+                </div>
+                <div>
+                  <span><strong>Host : </span></strong><%= listing.user.first_name %>
+                <%= cl_image_tag listing.user.photo.key, class:"sm-avatar ms-2" %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
-  </div>
-  </div>
   </div>
 </div>

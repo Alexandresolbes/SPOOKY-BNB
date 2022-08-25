@@ -19,13 +19,19 @@ body {
   background-color: $grey;
 }
 
-#cards-index {
-  position: absolute;
-  top: 500px;
-  left: 45px;
-  bottom: 0px;
-}
-
 h1{
   font-family: "Nosifer", cursive;
 }
+
+#cards-index {
+  position: relative;
+  top: -100px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.obj-fit{
+  object-fit: cover;
+}
+
