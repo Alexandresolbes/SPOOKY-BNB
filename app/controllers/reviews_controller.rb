@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
     if @booking.status == 'past'
       @listing = @booking.listing
       @review = Review.new
+      authorize @review
     else
       redirect_to bookings_path, notice: "Can't create a review"
     end
@@ -13,6 +14,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(reviews_params)
     @review.booking = @booking
+    authorize @review
     if @review.save!
       redirect_to bookings_path, notice: "Review created successfully"
     else

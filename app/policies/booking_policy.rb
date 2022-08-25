@@ -1,6 +1,6 @@
 class BookingPolicy < ApplicationPolicy
   def show?
-    record.user == user
+    record.user == user || record.listing.user == user
   end
 
   def create?
@@ -8,11 +8,11 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.user == user || record.listing.user == user
   end
 
   def destroy?
-    record.user == user
+    record.user == user || record.listing.user == user
   end
 
   class Scope < Scope
