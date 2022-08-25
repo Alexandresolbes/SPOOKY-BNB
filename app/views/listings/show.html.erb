@@ -3,7 +3,7 @@
 
 
 
-  
+
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -15,7 +15,7 @@
      <%= cl_image_tag @listing.photos.first.key, class:"d-block w-100" %>
     </div>
     <div class="carousel-item">
-     
+
         <%= cl_image_tag @listing.photos.last.key, class:"d-block w-100" %>
     </div>
   </div>
@@ -28,7 +28,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-      
+
   <div class="my-3">
     <h5><strong>👻 Description</strong></h5>
     <p><%= @listing.description %></p>
@@ -60,10 +60,10 @@
   <div class="my-5">
   <%= link_to 'Back', listings_path, class:"btn btn-outline-light" %>
 
-  <% if current_user == @listing.user %>
+  <% if policy(@listing).edit? %>
     <%= link_to 'Delete', listing_path(@listing), data: { turbo_method: :delete, turbo_confirm: 'Sure ?' }, class:"btn btn-danger text-light" %>
     <%= link_to 'Update Listing', edit_listing_path(@listing), class:"btn btn-warning text-light" %>
-  <% elsif current_user != @listing.user %>
+  <% else %>
     <%= link_to 'Book Listing', new_listing_booking_path(@listing), class: "btn btn-primary" %>
   <% end %>
 

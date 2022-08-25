@@ -4,10 +4,12 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :destroy, :update, :edit]
 
   def index
+    @listings = policy_scope(Listing)
     @listings = Listing.all
   end
 
   def show
+    authorize @listing
     @markers = [
       {
         lat: @listing.latitude,
@@ -18,9 +20,11 @@ class ListingsController < ApplicationController
   end
 
   def edit
+    authorize @listing
   end
 
   def update
+    authorize @listing
     if @listing.update(listing_params)
       redirect_to @listing, notice: "Updated successfully"
     else
@@ -30,11 +34,14 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
+    authorize @listing
+
   end
 
   def create
     @listing = Listing.new(listing_params)
     @listing.user = current_user
+    authorize @listing
     if @listing.save!
       redirect_to @listing, notice: "Listing created !"
     else
@@ -42,8 +49,8 @@ class ListingsController < ApplicationController
     end
   end
 
-
   def destroy
+    authorize @listing
     @listing.destroy
     redirect_to listings_path, status: :see_other
   end
