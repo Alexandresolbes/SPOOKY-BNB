@@ -16,11 +16,12 @@
         <div class="card-body px-0 py-1">
           <h5 class="text-end text-white text-decoration-none"><strong><%= rand(0..5) %> ⭐</strong></h5>
           <p><%= link_to listing.title, listing_path(listing), class: "card-title text-decoration-none text-white fw-bolder" %></p>
-          <p class="p-0" id="description">👻<%= listing.description[0, 60] %></p>
+
+          <p class="p-0 description">👻<%= listing.description %></p>
           <p class="p-0">💲<%= listing.price_per_night %>/ night</p>
           <p class="p-0">🧑🏻‍🤝‍🧑🏻<%= listing.max_guests %></p>
           <hr>
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between card-footer">
           <div>
              <%= link_to "See more", listing_path(listing), class: "btn btn-orange" %>
           </div>
