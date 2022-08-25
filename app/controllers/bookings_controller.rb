@@ -5,10 +5,15 @@ class BookingsController < ApplicationController
   def index
   end
 
+  def show
+    authorize @booking
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.listing = @listing
     @booking.user = current_user
+    authorize @booking
     if @booking.save!
       redirect_to @booking, notice: "Booking created !"
     else
@@ -20,6 +25,7 @@ class BookingsController < ApplicationController
   end
 
   def update
+    authorize @booking
     if @booking.update(booking_params)
       redirect_to bookings_host_path, notice: "Status updated successfully"
     else
