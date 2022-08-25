@@ -1,11 +1,11 @@
 <%= render 'shared/banner' %>
 
 <div class="container">
-  <h1 class="text-center my-4">All the Listings</h1>
   <div class="row">
+  <div class="card-group"></div>
   <% @listings.each do |listing| %>
     <div class="col-sm-4 my-4">
-     
+
       <div class="card p-4 rounded-4">
       <%= link_to listing_path(listing) do %>
         <% if listing.photos.count.positive? %>
@@ -16,12 +16,11 @@
         <div class="card-body px-0 py-1">
           <h5 class="text-end text-white text-decoration-none"><strong><%= rand(0..5) %> ⭐</strong></h5>
           <p><%= link_to listing.title, listing_path(listing), class: "card-title text-decoration-none text-white fw-bolder" %></p>
-          <p>
-          <p class="p-0">👻<%= listing.description[0, 40] %></p>
+          <p class="p-0 description">👻<%= listing.description[0, 40] %></p>
           <p class="p-0">💲<%= listing.price_per_night %>/ night</p>
           <p class="p-0">🧑🏻‍🤝‍🧑🏻<%= listing.max_guests %></p>
           <hr>
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between card-footer">
           <div>
              <%= link_to "See more", listing_path(listing), class: "btn btn-orange" %>
           </div>
@@ -35,5 +34,5 @@
     </div>
   <% end %>
   </div>
+  </div>
 </div>
-
