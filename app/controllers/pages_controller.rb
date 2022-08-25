@@ -20,10 +20,6 @@ class PagesController < ApplicationController
     define_active
   end
 
-  def profile
-    @user = current_user
-  end
-
   private
 
   def define_active
