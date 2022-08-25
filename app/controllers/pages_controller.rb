@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
   def bookings_as_guest
     @bookings = Booking.where(user: current_user)
+    @review = Review.new
     define_active
   end
 
