@@ -1,0 +1,11 @@
+<div class="container w-50">
+<%= @listing.title %>
+
+<%= simple_form_for [@listing, @booking] do |f| %>
+  <%= f.input :start_date, as: :string, required: false, html5: true, as: :date %>
+  <%= f.input :end_date, as: :string, required: false, html5: true, as: :date  %>
+  <%= f.button :submit, "Create a booking", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to 'Back', listing_path(@listing) %>
+</div>
