@@ -1,13 +1,8 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:edit, :update, :define_active]
-  before_action :set_listing, only: [:create, :new]
+  before_action :set_listing, only: [:create]
 
   def index
-  end
-
-  def new
-    @user = current_user
-    @booking = Booking.new
   end
 
   def create

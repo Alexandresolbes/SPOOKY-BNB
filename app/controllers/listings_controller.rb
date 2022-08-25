@@ -1,7 +1,6 @@
 class ListingsController < ApplicationController
-
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_listing, only: [:show, :edit, :destroy, :update, :edit]
+  before_action :set_listing, only: [:new, :show, :edit, :destroy, :update, :edit]
 
   def index
     @listings = policy_scope(Listing)
@@ -17,6 +16,8 @@ class ListingsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: {listing: @listing}),
         image_url: helpers.asset_url("hache.png")
       }]
+    @user = current_user
+    @booking = Booking.new
   end
 
   def edit
