@@ -1,4 +1,7 @@
 // Graphical variables
+
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
@@ -12,3 +15,9 @@
 @import "pages/index";
 
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+
+
+
+$black: #272626;
+$text: #F8F8FF;
+$grey: #2b2b2b;
