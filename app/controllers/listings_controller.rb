@@ -18,6 +18,7 @@ class ListingsController < ApplicationController
       }]
     @user = current_user
     @booking = Booking.new
+    @reviews = @listing.reviews
   end
 
   def edit

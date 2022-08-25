@@ -2,7 +2,7 @@
   <h1 class="text-center mb-4">My bookings</h1>
   <div class="row">
     <% @bookings.each do |booking| %>
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       <div class="card px-3 py-4 grey-bg mb-3 rounded-4">
         <%= cl_image_tag booking.listing.photos.first.key, class: "rounded-4 mb-4" %>
         <h5><strong><%= booking.listing.title %></strong></h5>
@@ -21,7 +21,7 @@
           <span class="badge text-bg-secondary"><%= booking.status %></span>
         <% end %>
         </p>
-        
+
         <div class="text-center">
         <% if booking.status == 'active' || booking.status == 'pending' %>
           <%= simple_form_for booking, method: :patch do |f| %>
@@ -30,7 +30,16 @@
           <% end %>
         <% end %>
           <% if booking.status == "past" %>
-            <%= button_to "Post a review", new_listing_booking_review_path(booking.listing_id, booking), class: "btn btn-light" %>
+            <p>
+              <a class="btn btn-light" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Write a Review
+              </a>
+            </p>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">listing
+                <%= render 'reviews/form', listing: Listing.find(booking.listing_id), booking: booking %>
+              </div>
+            </div>
           <% end %>
           <% if booking.status == "cancelled" %>
             <%= link_to "Book another flat", listings_path, class: "btn btn-green" %>

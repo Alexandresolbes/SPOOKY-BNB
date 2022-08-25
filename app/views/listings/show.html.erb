@@ -24,7 +24,7 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-        
+
       <div class="my-3">
         <h5><strong>👻 Description</strong></h5>
         <p><%= @listing.description %></p>
@@ -62,8 +62,27 @@
     <div class="col-sm-5">
       <h2>Book this house</h2>
       <%= render 'bookings/form', listing: @listing %>
+      <p>
+        <% if @listing.bookings.where(user_id: current_user.id, status: "past").exists? %>
+          You have booked this property before. <%= link_to "Write a review.", bookings_path %>
+        <% elsif @listing.bookings.where(user_id: current_user.id, status: "active").exists? %>
+          You have a confirmed booking for this property from <%= @listing.bookings.where(user_id: current_user.id, status: "active").last.start_date %> to <%= @listing.bookings.where(user_id: current_user.id, status: "active").last.end_date %>.
+        <% end %>
+      </p>
       <hr>
       <h2>Reviews</h2>
+      <div>
+        <% if @reviews.empty? %>
+        This listing doesn't have any reviews yet.
+        <% else %>
+          <% @reviews.each do |review| %>
+            <div>
+              "<%= review.content %>"
+              <p> - <%= review.booking.user.first_name %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
     <% end %>
   </div>
