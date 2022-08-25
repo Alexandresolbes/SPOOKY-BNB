@@ -21,6 +21,13 @@
         <% end %>
         </p>
 
+        <% if booking.status == 'active' || 'pending' %>
+          <%= form_for booking, method: :patch do |f| %>
+            <%= f.hidden_field :status, value: 'cancelled' %>
+            <%= f.submit 'Cancel reservation', class: "btn btn-cancel" %>
+          <% end %>
+        <% end %>
+
         <% if booking.status == "past" %>
           <%= link_to "Post a review", new_listing_booking_review_path(booking.listing_id, booking) %>
         <% end %>
