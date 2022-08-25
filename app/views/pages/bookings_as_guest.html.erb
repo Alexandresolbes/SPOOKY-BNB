@@ -30,7 +30,7 @@
           <% end %>
         <% end %>
           <% if booking.status == "past" %>
-            <%= button_to "Post a review", new_listing_booking_review_path(booking.listing_id, booking), class: "btn btn-light" %>
+            <%= button_to "Post a review",  new_listing_booking_review_path(Listing.find(booking.listing_id), booking), class: "btn btn-light" %>
           <% end %>
           <% if booking.status == "cancelled" %>
             <%= link_to "Book another flat", listings_path, class: "btn btn-green" %>
