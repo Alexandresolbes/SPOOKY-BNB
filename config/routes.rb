@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
   get "/bookings", to: "pages#bookings_as_guest"
   get "/bookings_host", to: "pages#bookings_as_host"
+  get "/profile", to: "pages#profile"
 end
