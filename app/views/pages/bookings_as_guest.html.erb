@@ -1,40 +1,46 @@
 <div class="container">
   <h1 class="text-center mb-4">My bookings</h1>
-  <div class="row justify-content-between">
+  <div class="row">
     <% @bookings.each do |booking| %>
     <div class="col-sm-4">
       <div class="card px-3 py-4 grey-bg mb-3 rounded-4">
+        <%= cl_image_tag booking.listing.photos.first.key, class: "rounded-4 mb-4" %>
         <h5><strong><%= booking.listing.title %></strong></h5>
         <hr>
         <p><strong>Start Date</strong> - <%= booking.start_date.strftime("%A, %B %d %Y") %></p>
         <p><strong>End Date</strong> - <%= booking.end_date.strftime("%A, %B %d %Y") %></p>
 
-        <p><strong>Status - </strong>
+        <p class="mb-5"><strong>Status - </strong>
         <% if booking.status == 'pending' %>
           <span class="badge text-bg-light"><%= booking.status %></span>
         <% elsif booking.status == 'active' %>
           <span class="badge text-bg-success"><%= booking.status %></span>
         <% elsif booking.status == 'cancelled' %>
-          <span class="badge text-bg-danger"><%= booking.status %></span>
+          <span class="badge text-bg-danger text-white"><%= booking.status %></span>
         <% else %>
           <span class="badge text-bg-secondary"><%= booking.status %></span>
         <% end %>
         </p>
-
-        <% if booking.status == 'active' || 'pending' %>
-          <%= form_for booking, method: :patch do |f| %>
+        
+        <div class="text-center">
+        <% if booking.status == 'active' || booking.status == 'pending' %>
+          <%= simple_form_for booking, method: :patch do |f| %>
             <%= f.hidden_field :status, value: 'cancelled' %>
-            <%= f.submit 'Cancel reservation', class: "btn btn-cancel" %>
+            <%= f.submit 'Cancel reservation', class: "btn btn-danger text-light" %>
           <% end %>
         <% end %>
+          <% if booking.status == "past" %>
+            <%= button_to "Post a review", new_listing_booking_review_path(booking.listing_id, booking), class: "btn btn-light" %>
+          <% end %>
+          <% if booking.status == "cancelled" %>
+            <%= link_to "Book another flat", listings_path, class: "btn btn-green" %>
+          <% end %>
+        </div>
 
-        <% if booking.status == "past" %>
-          <%= link_to "Post a review", new_listing_booking_review_path(booking.listing_id, booking) %>
-        <% end %>
       </div>
     </div>
     <% end %>
-    <div class="text-center">
+    <div class="text-center mb-4">
     <%= link_to "Back", listings_path, class:"btn btn-outline-light" %>
     </div>
   </div>

@@ -18,8 +18,8 @@
             <p class="p-0">👻<%= listing.description[0, 40] %></p>
             <p class="p-0">💲<%= listing.price_per_night %>/ night</p>
             <p class="p-0">🧑🏻‍🤝‍🧑🏻<%= listing.max_guests %></p>
-              <%= link_to 'Delete this listing', listing_path(listing), data: { turbo_method: :delete, turbo_confirm: 'Sure ?' }, class: "btn btn-orange" %>
-              <%= link_to 'Update listing', edit_listing_path(listing), class: "btn btn-orange" %>
+              <%= link_to 'Delete this listing', listing_path(listing), data: { turbo_method: :delete, turbo_confirm: 'Sure ?' }, class: "btn btn-green" %>
+              <%= link_to 'Update listing', edit_listing_path(listing), class: "btn btn-green" %>
           </div>
       </div>
     </div>
@@ -38,16 +38,16 @@
         <% if booking.status == 'pending' %>
           <%= form_for booking, method: :patch do |f| %>
             <%= f.hidden_field :status, value: 'active' %>
-            <%= f.submit 'Accept reservation', class: "btn btn-orange" %>
+            <%= f.submit 'Accept reservation', class: "btn btn-green" %>
           <% end %>
           <%= form_for booking, method: :patch do |f| %>
             <%= f.hidden_field :status, value: 'cancelled' %>
-            <%= f.submit 'Refuse reservation', class: "btn btn-orange" %>
+            <%= f.submit 'Refuse reservation', class: "btn btn-green" %>
           <% end %>
         <% elsif booking.status == 'active' %>
           <%= form_for booking, method: :patch do |f| %>
             <%= f.hidden_field :status, value: 'cancelled' %>
-            <%= f.submit 'Cancel reservation', class: "btn btn-orange" %>
+            <%= f.submit 'Cancel reservation', class: "btn btn-green" %>
           <% end %>
         <% end %>
       </div>
