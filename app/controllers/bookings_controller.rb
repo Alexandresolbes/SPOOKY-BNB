@@ -2,13 +2,6 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:edit, :update, :define_active]
   before_action :set_listing, only: [:create]
 
-  def index
-  end
-
-  def show
-    authorize @booking
-  end
-
   def create
     @booking = Booking.new(booking_params)
     @booking.listing = @listing
