@@ -1,14 +1,32 @@
 $black: #272626;
 $grey: #2b2b2b;
 
+
 .card{
   color: white!important;
   background-color: $grey;
+  margin-left: 50px;
 }
+    #description{
+      text-overflow:ellipsis;
+      text-overflow: "...";
+      -webkit-line-clamp: 1;
+      white-space:nowrap;
+      overflow:hidden;
+    }
+
 
 .sm-avatar{
   width: 30px;
   height: 30px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+
+.card-footer {
+  padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
+  color: var(--bs-card-cap-color);
+  background-color: var(--bs-card-cap-bg);
+  border-top: none;
 }
