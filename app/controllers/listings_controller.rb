@@ -14,7 +14,7 @@ class ListingsController < ApplicationController
         lat: @listing.latitude,
         lng: @listing.longitude,
         info_window: render_to_string(partial: "info_window", locals: {listing: @listing}),
-        image_url: helpers.asset_url("hache.png")
+        image_url: helpers.asset_url("thriller.png")
       }]
     @user = current_user
     @booking = Booking.new
