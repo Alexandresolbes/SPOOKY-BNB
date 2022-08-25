@@ -1,8 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to root_path do %>
-      <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1661335916/spooky-logo_p0cl45.png", height= 60>
-    <% end %>
+    <div class="d-flex align-items-center justify-content-center">
+     
+      <div data-controller="evil">
+      <audio src="<%= asset_url 'Evil.mp3' %>" data-evil-target="clown"></audio>
+        <span data-action= "click->evil#laugh"><%= image_tag "evil_clown", height: 60 %></span>
+      </div>
+      <div id="logo-box">
+      <%= link_to root_path do %>
+        <h2 class="fs-4 m-0 website-name">SPOOKY<br>BNB</h2>
+      <% end %>  
+      </div>
+    </div>   
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,11 +20,6 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-
-          <li data-controller="evil">
-            <audio src="<%= asset_url 'Evil.mp3' %>" data-evil-target="clown"></audio>
-            <span data-action= "click->evil#laugh"><%= image_tag "evil_clown", class: "sm-avatar" %></span>
-          </li>
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>

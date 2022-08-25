@@ -23,6 +23,21 @@
   color: $green;
 }
 
+.nav-link:focus{
+  color: $green;
+}
+
 .avatar{
   border: 2px solid $white;
+}
+
+.website-name{
+  font-family: 'Nosifer', cursive;
+}
+
+#logo-box{
+  a{
+    text-decoration: none;
+    color: $text;
+  }
 }
