@@ -30,6 +30,24 @@
   a{
     text-decoration: none!important;
   }
+  button {
+    display: inline-block;
+    background-color: transparent;
+    color: $green;
+    border: 0;
+    margin-left: 10px;
+    transition: .5s;
+  }
+  button:hover:before {
+    color: $green;
+    filter: blur(0.3px);
+  }
+
+   button:hover {
+    color: $green;
+    text-shadow: 0 0 15px $green;
+  }
+
 }
 
 .bookings-host{

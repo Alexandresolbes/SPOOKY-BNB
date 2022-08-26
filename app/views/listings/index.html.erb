@@ -19,14 +19,14 @@
               <p class="p-0">🧑🏻‍🤝‍🧑🏻<%= listing.max_guests %></p>
               <hr>
               <div class="d-flex justify-content-between card-footer">
-                <div>
+                <div class="d-flex">
                   <%= link_to listing_path(listing) do  %>
                     <i class="fa-solid fa-eye btn-neon"></i>
                     <% end %>
-                  <% if current_user %>
-                    <% if listing.bookmarks.where(user_id: current_user.id).exists? %>
+                  <% if current_user && current_user != listing.user  %>
+                    <% if listing.bookmarks.where(user_id: current_user.id).exists?%>
                       <%= button_to bookmark_path(listing.bookmarks.where(user_id: current_user.id).last.id), method: :delete do %>
-                        delete bookmark
+                        <i class="fa-regular fa-bookmark"></i>
                       <% end %>
                     <% else %>
                       <%= button_to listing_bookmarks_path(listing), method: :post do %>
