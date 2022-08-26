@@ -20,6 +20,10 @@ body {
   background-color: $grey;
 }
 
+.text-green{
+  color: $green;
+}
+
 h1{
   font-family: "Nosifer", cursive;
 }
@@ -34,4 +38,8 @@ h1{
 
 .obj-fit{
   object-fit: cover;
+}
+
+.btn{
+  cursor: url(http://www.rw-designer.com/cursor-view/178562.png), grab;
 }
