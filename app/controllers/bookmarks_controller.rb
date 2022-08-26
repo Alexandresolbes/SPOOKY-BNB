@@ -21,4 +21,11 @@ class BookmarksController < ApplicationController
     @bookmark.destroy
     redirect_to bookmarks_path, status: :see_other
   end
+
+  private
+
+  def bookmark_params
+    params.require(:bookmark).permit(:listing_id, :user_id)
+  end
+
 end
