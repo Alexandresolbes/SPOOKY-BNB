@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create] do
       resources :reviews, only: [:new, :create]
     end
+    resources :bookmarks, only: [:create]
   end
   resources :bookings, only: [:destroy, :edit, :update]
+  resources :bookmarks, only: [:index, :destroy]
 
   get "/bookings", to: "pages#bookings_as_guest"
   get "/bookings_host", to: "pages#bookings_as_host"

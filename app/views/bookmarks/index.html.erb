@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="card-group">
+      <% @bookmarks.each do |bookmark| %>
+        <div class="col-sm-4 my-4">
+          <div class="card p-4 rounded-4">
+            <%= link_to listing_path(bookmark.listing) do %>
+              <% if bookmark.listing.photos.count.positive? %>
+                <%= cl_image_tag bookmark.listing.photos.first.key, height: 250, class: "card-img-top rounded-4" %>
+              <% end %>
+            <% end %>
+            <div class="card-body px-0 py-1">
+              <h5 class="text-end text-white text-decoration-none"><strong><%= rand(0..5) %> ⭐</strong></h5>
+              <p><%= link_to bookmark.listing.title, listing_path(bookmark.listing), class: "card-title text-decoration-none text-white fw-bolder" %></p>
+              <p class="p-0 description">👻<%= bookmark.listing.description %></p>
+              <p class="p-0">💲<%= bookmark.listing.price_per_night %>/ night</p>
+              <p class="p-0">🧑🏻‍🤝‍🧑🏻<%= bookmark.listing.max_guests %></p>
+              <hr>
+              <div class="d-flex justify-content-between card-footer">
+                <div>
+                  <%= link_to "See more", listing_path(bookmark.listing), class: "btn btn-green" %>
+                </div>
+                <div>
+                  <span><strong>Host : </span></strong><%= bookmark.listing.user.first_name %>
+                <%= cl_image_tag bookmark.listing.user.photo.key, class:"sm-avatar ms-2" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
