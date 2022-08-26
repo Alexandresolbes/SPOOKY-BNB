@@ -68,7 +68,7 @@ file_2 = URI.open("https://a0.muscache.com/im/pictures/8fa09ffe-3e8d-43ac-8e00-c
 dracula = Listing.new(
   title: "Dracula's Mansion",
   description: "Discover Dracula's Home",
-  address: "Str. G-ral Traian Mosoiu, nr.24, Bran",
+  address: "Strada General Traian Moșoiu 24, Bran 507025, Romania",
   max_guests: rand(1..10),
   price_per_night: rand(20...500),
   user_id: User.all.sample.id
@@ -83,7 +83,7 @@ file_2 = URI.open("https://static01.nyt.com/images/2012/10/24/blogs/20121024-len
 aokigahara = Listing.new(
   title: "Aokigahara Forest",
   description: "Set up your tent and meet yûreis in the most famous forest in Japan",
-  address: "Narusawa, Fujikawaguchiko, Minamitsuru District, Yamanashi 401-0300, Japan",
+  address: "Aokigahara, Japan",
   max_guests: rand(1..10),
   price_per_night: rand(20...500),
   user_id: User.all.sample.id
@@ -139,7 +139,7 @@ file_2 = URI.open("https://static2.tripoto.com/media/filter/tst/img/295383/TripD
 fort = Listing.new(
   title: "Bhangarh's Fort",
   description: "Sleep and meet a Tantrik Black Mage",
-  address: "Tehsil, Gola ka baas, Rajgarh, Bhangarh, Rajasthan 301410, India",
+  address: "Rajasthan, India",
   max_guests: rand(1..10),
   price_per_night: rand(20...500),
   user_id: User.all.sample.id
@@ -153,7 +153,7 @@ file_2 = URI.open("https://img.itinari.com/page/content/original/425fc866-e19c-4
 rasputin = Listing.new(
   title: "Rasputin's House",
   description: "It was the home of most mystical person of Russian history",
-  address: "64 Gorokhovaïa street Saint Petersburg, Russia",
+  address: "Gorokhovaya St, 64 Sankt-Peterburg, Russia, 191180",
   max_guests: rand(1..10),
   price_per_night: rand(20...500),
   user_id: User.all.sample.id
@@ -167,7 +167,7 @@ file_2 = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSWBcMV
 church = Listing.new(
   title: "Egg Hill Church",
   description: "Enjoy your stay at one of the most haunted church of the world, beware of the pastor....",
-  address: "289 T407, Spring Mills, PA 16875, United States",
+  address: "Spring Mills, Pennsylvania, USA",
   max_guests: rand(1..10),
   price_per_night: rand(20...500),
   user_id: User.all.sample.id
