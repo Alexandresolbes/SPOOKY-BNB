@@ -24,11 +24,4 @@ class BookmarksController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
-  private
-
-  def bookmark_params
-    params.require(:bookmark).permit(:listing_id, :user_id)
-  end
-
 end
