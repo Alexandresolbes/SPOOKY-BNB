@@ -1,13 +1,12 @@
 class BookmarksController < ApplicationController
   def index
-    @bookmarks = policy_scope(Listing)
+    @bookmarks = policy_scope(Bookmark)
     @bookmarks = Bookmark.where(user_id: current_user.id)
   end
 
   def create
-    @bookmark = Bookmark.new(bookmark_params)
-    @bookmark.listing = @listing
-    @bookmark.user = current_user
+    @listing = Listing.find(params[:listing_id])
+    @bookmark = Bookmark.new(listing_id: @listing.id, user_id: current_user.id)
     authorize @bookmark
     if @bookmark.save!
       redirect_to @bookmark, notice: "Listing successfully added to your favorites."
@@ -17,8 +16,19 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
+    @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
-    @bookmark.destroy
-    redirect_to bookmarks_path, status: :see_other
+    if @bookmark.destroy!
+      redirect_to listings_path, notice: "Listing successfully suppressed from your favorites."
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
+
+  private
+
+  def bookmark_params
+    params.require(:bookmark).permit(:listing_id, :user_id)
+  end
+
 end

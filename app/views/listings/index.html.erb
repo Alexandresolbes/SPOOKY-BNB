@@ -23,8 +23,16 @@
                   <%= link_to listing_path(listing) do  %>
                     <i class="fa-solid fa-eye btn-neon"></i>
                     <% end %>
-                  <%= link_to listings_path do %>
-                  <i class="fa-solid fa-bookmark btn-neon"></i>
+                  <% if current_user %>
+                    <% if listing.bookmarks.where(user_id: current_user.id).exists? %>
+                      <%= button_to bookmark_path(listing.bookmarks.where(user_id: current_user.id).last.id), method: :delete do %>
+                        delete bookmark
+                      <% end %>
+                    <% else %>
+                      <%= button_to listing_bookmarks_path(listing), method: :post do %>
+                        <i class="fa-solid fa-bookmark btn-neon"></i>
+                      <% end %>
+                    <% end %>
                   <% end %>
                 </div>
                 <div>
