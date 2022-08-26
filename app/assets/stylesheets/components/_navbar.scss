@@ -3,6 +3,16 @@
   background: $black;
 }
 
+.dropdown-menu{
+  background-color: $black;
+  .dropdown-item{
+    color: $green;
+  }
+  .dropdown-item:hover{
+    background-color: $grey;
+  }
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }

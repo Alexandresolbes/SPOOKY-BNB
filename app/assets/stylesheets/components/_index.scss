@@ -14,6 +14,10 @@
 body {
   background: $black;
   color: $text;
+  .wrapper{
+    position: relative;
+    min-height: 100vh;
+  }
 }
 
 .grey-bg{
@@ -34,6 +38,7 @@ h1{
   left: 0;
   right: 0;
   margin: 0 auto;
+  padding-bottom: 50px;
 }
 
 .obj-fit{
