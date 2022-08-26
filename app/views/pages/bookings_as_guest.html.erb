@@ -22,10 +22,12 @@
           <% end %>
         </p>        
           <% if booking.status == 'active' || booking.status == 'pending' %>
-            <%= simple_form_for booking, method: :patch do |f| %>
-              <%= f.hidden_field :status, value: 'cancelled' %>
-              <%= f.submit 'Cancel reservation', class: "btn btn-danger text-light" %>
-            <% end %>
+            <div class="text-center">
+              <%= simple_form_for booking, method: :patch do |f| %>
+                <%= f.hidden_field :status, value: 'cancelled' %>
+                <%= f.submit 'Cancel reservation', class: "btn btn-danger text-light" %>
+              <% end %>
+            </div>
           <% end %>
           <% if booking.status == "past" && current_user.reviews.where(booking_id: booking).blank? %>
             <p class="text-center">
@@ -38,11 +40,13 @@
                 <%= render 'reviews/form', listing: Listing.find(booking.listing_id), booking: booking %>
               </div>
             </div>
-          <% else %>
+          <% elsif booking.status == "past" && !current_user.reviews.where(booking_id: booking).blank?  %>
             <p class="text-center"><strong>Thank you for your review 👻 ! <strong></p>
           <% end %>
           <% if booking.status == "cancelled" %>
-            <%= link_to "Book another flat", listings_path, class: "btn btn-green" %>
+            <div class="text-center">
+              <%= link_to "Book another flat", listings_path, class: "btn btn-green" %>
+            </div>
           <% end %>
 
       </div>
