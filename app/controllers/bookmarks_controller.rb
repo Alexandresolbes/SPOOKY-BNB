@@ -19,7 +19,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
     if @bookmark.destroy!
-      redirect_to listings_path, notice: "Listing successfully suppressed from your favorites."
+      redirect_to listings_path, notice: "Listing suppressed from your favorites."
     else
       render :new, status: :unprocessable_entity
     end
