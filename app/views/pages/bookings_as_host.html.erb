@@ -12,13 +12,16 @@
             <div class="card-body ms-3 d-flex flex-column justify-content-between vertical-card-body">
               <div>
                 <h5 class="card-title"><%= link_to listing.title, listing_path(listing), class: "card-title text-decoration-none text-white fw-bolder" %></h5>
-              </div>
-              <div>  
-                <h5 class="my-3">🗓️ <strong></strong> <%= listing.bookings.count %></h5>
+                <hr>
+                <div class="d-flex justify-content-start">  
+                  <h5><i class="fa-solid fa-calendar-days text-green"></i> <%= listing.bookings.count %></h5>
+                  <h5 class="mx-4"><i class="fa-solid fa-pen text-green"></i></i></i><strong></strong> <%= listing.reviews.count %></h5>
+                  <h5><i class="fa-solid fa-bookmark text-green"></i><strong></strong> <%= listing.bookmarks.count %></h5>
+                </div>
               </div>
               <div>
-                <%= link_to 'Update', edit_listing_path(listing), class: "btn btn-green" %>
-                <%= link_to 'Delete', listing_path(listing), data: { turbo_method: :delete, turbo_confirm: 'Sure ?' }, class: "btn btn-danger" %>
+                <%= link_to 'Update', edit_listing_path(listing), class: "btn btn-outline-light" %>
+                <%= link_to 'Delete', listing_path(listing), data: { turbo_method: :delete, turbo_confirm: 'Sure ?' }, class: "btn btn-outline-danger" %>
               </div>
             </div>
           </div>

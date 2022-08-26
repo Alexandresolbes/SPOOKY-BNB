@@ -16,8 +16,17 @@
 .btn-neon:hover:before {
   filter: blur(0.3px);
 }
+
 .btn-neon:hover {
   opacity: 1;
   color: $green;
+  text-shadow: 0 0 15px $green;
+}
+
+.link-neon{
+  transition: .5s;
+}
+
+.link-neon:hover, .link-neon:active{
   text-shadow: 0 0 15px $green;
 }
