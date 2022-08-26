@@ -28,6 +28,9 @@
   color: var(--bs-card-cap-color);
   background-color: var(--bs-card-cap-bg);
   border-top: none;
+  a{
+    text-decoration: none!important;
+  }
 }
 
 .bookings-host{
