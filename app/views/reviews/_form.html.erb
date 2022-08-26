@@ -2,5 +2,7 @@
   <%= f.input :title %>
   <%= f.input :content %>
   <%= f.input :rating, collection: 1..5 %>
-  <%= f.submit "Post your review", class: "btn btn-pin border mt-3" %>
+  <div class="text-center">
+    <%= f.submit "Post", class: "btn btn-green mt-3" %>
+  </div>
 <% end %>
