@@ -13,10 +13,24 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
   </head>
 
-  <body class="mb-5">
+  <body>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <%= yield %>
+
+    <div class="footer container-fluid mt-5">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright pt-3">
+    This footer was made by AmiGo Team
+  </div>
+</div>
+
   </body>
 </html>
